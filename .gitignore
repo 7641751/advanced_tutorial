@@ -1,0 +1,68 @@
+# ============================================================
+# advanced_tutorial · .gitignore
+# 原则：只排除「密钥 / 可重建的派生数据 / 第三方与个人隐私内容 / 工具缓存」
+# ============================================================
+
+# ---------- 密钥（仓库根在 advanced_tutorial/，../.env 天然不在内；此处再防一层）----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets.*
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+
+# ---------- Node / 前端 ----------
+node_modules/
+dist/
+frontend/dist/
+npm-debug.log*
+yarn-error.log*
+*.local
+
+# ---------- 向量库与派生数据（可由 `python ingest.py` 重建，单文件 24MB+）----------
+**/data/chroma_db/
+**/data/faiss_index/
+*.sqlite3
+*.faiss
+index_metadata.pickle
+
+# ---------- 用户上传的原始文件（个人笔记 / 课程资料，不进版本库）----------
+# 需要共享时再单独决定；这些是运行时数据，不是源码
+**/data/uploads/
+
+# ---------- LLM / 工具缓存 ----------
+.llm_cache.db
+*.cache
+.cache/
+
+# ---------- IDE ----------
+.idea/
+.vscode/
+*.iml
+*.iws
+
+# ---------- 设计与头脑风暴的临时产物（spec/plan 成品在 docs/superpowers/ 里，保留）----------
+.superpowers/
+
+# ---------- 误产生的垃圾文件 ----------
+mermaid[0-9]*.mermaid
+0.1.0
+3.0.0
+
+# ---------- 系统 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
