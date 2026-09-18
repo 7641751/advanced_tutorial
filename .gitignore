@@ -66,3 +66,13 @@ mermaid[0-9]*.mermaid
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ... existing code ...
+# ---------- 向量库与派生数据（可由 `python ingest.py` 重建，单文件 24MB+）----------
+**/data/chroma_db/
+**/data/faiss_index/
+*.sqlite3
+*.db
+*.faiss
+index_metadata.pickle
+# ... existing code ...
