@@ -39,6 +39,11 @@ yarn-error.log*
 *.faiss
 index_metadata.pickle
 
+# 检索评估：脚本 eval_retrieval.py 与人工标注的评测集 data/eval_queries.json 是「源」，要进库；
+# 跑出来的 data/eval_results.json 与 _eval_* 冒烟产物是「可重建的派生数据」，不进库
+**/data/eval_results.json
+**/data/_eval*
+
 # ---------- 用户上传的原始文件（个人笔记 / 课程资料，不进版本库）----------
 # 需要共享时再单独决定；这些是运行时数据，不是源码
 **/data/uploads/
