@@ -1090,8 +1090,10 @@ rag_qa_project/
 ```
 
 **三条纪律：**
-1. **依赖注入**：`build_graph(model=None, retriever=None)` 把基础设施作为参数，
+1. **依赖注入**：`build_graph(model=None, vectorstore=None)` 把基础设施作为参数，
    测试塞 Fake、生产塞真货——`graph.py` 对"用什么模型"零假设
+   （P3 起注入的是 **vectorstore** 而非 retriever：`retrieve` 节点要在每次调用时
+   传 `filter` 做按用户隔离，而 retriever 的检索参数在构造期就冻结了）
 2. **节点纯函数**：输入 state → 输出增量 update，不碰全局变量（可回放、可测试）
 3. **接口层最薄**：run.py 不写业务逻辑，换 Web API 时图和节点原封不动'''),
         md('''## 2. 配置管理
