@@ -78,6 +78,11 @@ desktop.ini
 **/data/faiss_index/
 *.sqlite3
 *.db
+# SQLite WAL 模式的旁挂文件：只要后端在跑就会出现，且每次写入都变。
+# 漏了它们 git status 会一直有噪音，还可能被误提交。
+*.db-shm
+*.db-wal
+*.db-journal
 *.faiss
 index_metadata.pickle
 # ... existing code ...
