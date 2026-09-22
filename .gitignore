@@ -48,6 +48,10 @@ index_metadata.pickle
 # 需要共享时再单独决定；这些是运行时数据，不是源码
 **/data/uploads/
 
+# P3 删文档时给「只有向量、无落盘原因」的孤儿做过一次性备份（orphan-backup-*.json）：
+# 运行时派生数据，不进库
+**/data/orphan-backup-*.json
+
 # ---------- LLM / 工具缓存 ----------
 .llm_cache.db
 *.cache
